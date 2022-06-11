@@ -16,6 +16,9 @@ class PClass {
     private void awa(int i0) {
     }
 
+    private void awa(Integer i0) {
+    }
+
     public void awa(int i0, int i1) {
     }
 

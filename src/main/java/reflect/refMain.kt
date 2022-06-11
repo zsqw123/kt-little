@@ -19,4 +19,12 @@ fun main() {
     println(VClass::class.java.constructors.toList())
     println(VClass::class.java.declaredMethods.toList())
     println(VClass::class.java.methods.toList())
+    println("---------Primitive")
+    val types = arrayOf(1)
+    println(types[0]::class.java)
+    println(types[0]::class.javaPrimitiveType)
+    println("types[0]"::class.javaPrimitiveType)
+    println(PClass::class.java.getMethod("awa", Int::class.java, Int::class.java).name)
+    println(PClass::class.java.isAssignableFrom(PPClass::class.java))
+    println(PPClass::class.java.isAssignableFrom(PClass::class.java))
 }
