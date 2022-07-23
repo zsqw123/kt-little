@@ -1,11 +1,7 @@
-import com.fake.FakeClass
-
-@FakeClass
-fun bbshs() = Unit
+import fake.instance.FakeInstansce
 
 fun main() {
-    FakeBbshs()
-    FakeBbshs.FakeInnerClassStatic()
-    FakeBbss.fakeFieldStatic
-    FakeBbss().fakeMethod()
+
+F
+
 }

@@ -1,7 +1,6 @@
 public class JMain {
     public static void main(String[] args) {
-        
-        FakeBbc eden = new FakeBbc();
+        new com.aaa.FakeCsss().aFun();
     }
 }
 
