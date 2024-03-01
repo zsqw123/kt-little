@@ -17,12 +17,14 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.6.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
+    implementation("com.google.guava:guava:33.0.0-jre")
 }
 
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
         freeCompilerArgs = listOf("-Xcontext-receivers")
     }
 }
