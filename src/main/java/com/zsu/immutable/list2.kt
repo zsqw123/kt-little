@@ -16,10 +16,9 @@ fun main() {
     val ktPayload = payload.map { it.toPersistentList() }
     val myPayload = payload.map { MyPersistentList.copyOf(it) }
     var flattenData: List<Int>
-    var ktData: List<Int>
     var myData: List<Int>
     println("flatten cost ${measureTimeMillis { flattenData = flatten(payload) }}ms")
-    println("kt immutable cost ${measureTimeMillis { ktData = ktImmutable(ktPayload) }}ms")
+    println("kt immutable cost ${measureTimeMillis { ktImmutable(ktPayload) }}ms")
     println("myImmutable cost ${measureTimeMillis { myData = myImmutable(myPayload) }}ms")
     println("equals: ${flattenData.toList() == myData.toList()}")
 }
