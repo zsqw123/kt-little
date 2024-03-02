@@ -10,30 +10,19 @@ class MyPersistentList<E>(
     val startIndices: PersistentList<Int>, // [startIndices] size always equals with [allReferences]
 ) : MutateAbstractPersistentList<E>() {
 
-    constructor(size: Int, current: PersistentList<E>) : this(
-        size, persistentListOf(current), persistentListOf(0),
+    constructor(size: Int, onlyOne: PersistentList<E>) : this(
+        size, persistentListOf(onlyOne), persistentListOf(0),
     )
 
     override fun builder(): PersistentList.Builder<E> {
-        TODO("Not yet implemented")
+        return MyPersistentListBuilder(size, allReferences, startIndices)
     }
 
     override fun get(index: Int): E {
-        val refIndex = refIndexOf(index)
+        val refIndex = startIndices.refIndexOf(index)
         val startIndex = startIndices[refIndex]
         val ref = allReferences[refIndex]
         return ref[index - startIndex]
-    }
-
-    private fun refIndexOf(index: Int): Int {
-        var low = -1
-        var high = startIndices.size
-        while (low + 1 != high) {
-            val mid = (low + high) ushr 1
-            if (index >= startIndices[mid]) high = mid
-            else low = mid
-        }
-        return high
     }
 
     companion object {
@@ -41,4 +30,15 @@ class MyPersistentList<E>(
             return MyPersistentList(originList.size, originList.toPersistentList())
         }
     }
+}
+
+fun PersistentList<Int>.refIndexOf(index: Int): Int {
+    var low = -1
+    var high = size
+    while (low + 1 != high) {
+        val mid = (low + high) ushr 1
+        if (index >= get(mid)) high = mid
+        else low = mid
+    }
+    return high
 }
