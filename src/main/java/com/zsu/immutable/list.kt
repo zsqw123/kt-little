@@ -17,21 +17,21 @@ fun main() {
     println("guava immutable cost ${measureTimeMillis { guavaImmutable(payload) }}ms")
 }
 
-fun <T> listPlus(payload: List<List<T>>): List<T> {
+private fun <T> listPlus(payload: List<List<T>>): List<T> {
     var current = emptyList<T>()
     payload.forEach { current = current + it }
     return current
 }
 
-fun <T> flatten(payload: List<List<T>>): List<T> = payload.flatten()
+private fun <T> flatten(payload: List<List<T>>): List<T> = payload.flatten()
 
-fun <T> ktImmutable(input: List<List<T>>): List<T> {
+private fun <T> ktImmutable(input: List<List<T>>): List<T> {
     var current = persistentListOf<T>()
     input.forEach { current += it }
     return current
 }
 
-fun <T> guavaImmutable(input: List<List<T>>): List<T> {
+private fun <T> guavaImmutable(input: List<List<T>>): List<T> {
     var current: ImmutableList<T> = ImmutableList.of()
     input.forEach { current = ImmutableList.builder<T>().addAll(current).addAll(it).build() }
     return current

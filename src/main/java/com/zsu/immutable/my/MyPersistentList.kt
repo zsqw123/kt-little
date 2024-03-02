@@ -28,6 +28,10 @@ class MyPersistentList<E>(
         fun <E> copyOf(originList: List<E>): MyPersistentList<E> {
             return MyPersistentList(originList.size, originList.toPersistentList())
         }
+
+        fun <E> of(): MyPersistentList<E> {
+            return MyPersistentList(0, persistentListOf())
+        }
     }
 }
 
