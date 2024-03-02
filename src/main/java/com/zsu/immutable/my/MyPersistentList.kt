@@ -13,8 +13,12 @@ class MyPersistentList<E>(
     private val startIndices: PersistentList<Int>, // [startIndices] size always equals with [allReferences]
 ) : MutateAbstractPersistentList<E>() {
 
-    constructor(size: Int, onlyOne: PersistentList<E>) : this(
-        size, persistentListOf(onlyOne), persistentListOf(0),
+    constructor() : this(
+        0, persistentListOf(), persistentListOf(),
+    )
+
+    constructor(onlyOne: PersistentList<E>) : this(
+        onlyOne.size, persistentListOf(onlyOne), persistentListOf(0),
     )
 
     override fun builder(): PersistentList.Builder<E> {
@@ -26,12 +30,11 @@ class MyPersistentList<E>(
 
     companion object {
         fun <E> copyOf(originList: List<E>): MyPersistentList<E> {
-            return MyPersistentList(originList.size, originList.toPersistentList())
+            return MyPersistentList(originList.toPersistentList())
         }
 
-        fun <E> of(): MyPersistentList<E> {
-            return MyPersistentList(0, persistentListOf())
-        }
+        private val empty = MyPersistentList<Nothing>()
+        fun <E> of(): MyPersistentList<out E> = empty
     }
 }
 
@@ -40,10 +43,10 @@ fun PersistentList<Int>.refIndexOf(index: Int): Int {
     var high = size
     while (low + 1 != high) {
         val mid = (low + high) ushr 1
-        if (index >= get(mid)) high = mid
-        else low = mid
+        if (get(mid) <= index) low = mid
+        else high = mid
     }
-    return high
+    return low
 }
 
 @OptIn(ExperimentalContracts::class)
