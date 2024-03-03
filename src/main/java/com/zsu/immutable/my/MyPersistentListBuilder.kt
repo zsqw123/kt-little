@@ -47,7 +47,7 @@ class MyPersistentListBuilder<E>(
     }
 
     override fun add(index: Int, element: E) {
-        addAll(index, listOf(element))
+        addAll(index, listOfSingle(element))
     }
 
     override fun get(index: Int): E =

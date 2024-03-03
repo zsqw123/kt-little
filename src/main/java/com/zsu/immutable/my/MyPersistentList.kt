@@ -18,7 +18,7 @@ class MyPersistentList<E>(
     )
 
     constructor(onlyOne: PersistentList<E>) : this(
-        onlyOne.size, persistentListOf(onlyOne), persistentListOf(0),
+        onlyOne.size, listOfSingle(onlyOne), listOfSingle(0),
     )
 
     override fun builder(): PersistentList.Builder<E> {
