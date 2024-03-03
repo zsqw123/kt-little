@@ -5,7 +5,10 @@ import kotlinx.collections.immutable.implementations.immutableList.AbstractPersi
 import kotlinx.collections.immutable.persistentListOf
 
 class SingleItemPersistentList<E>(private val item: E) : AbstractPersistentList<E>() {
-    private val delegate get() = persistentListOf(item)
+    private var _delegate: PersistentList<E>? = null
+    private val delegate: PersistentList<E>
+        get() = _delegate ?: persistentListOf(item).also { _delegate = it }
+
     override fun get(index: Int): E = if (index == 0) item else throw IndexOutOfBoundsException(index)
     override fun isEmpty(): Boolean = false
     override val size: Int get() = 1
