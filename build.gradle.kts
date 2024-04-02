@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.9.22"
+    kotlin("plugin.serialization") version "1.9.22"
     application
 }
 
@@ -19,6 +20,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.6.2")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
     implementation("com.google.guava:guava:33.0.0-jre")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation(kotlin("reflect"))
 }
 
 
