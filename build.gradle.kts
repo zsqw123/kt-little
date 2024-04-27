@@ -21,6 +21,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
     implementation("com.google.guava:guava:33.0.0-jre")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    val asmVersion = "9.7"
+    implementation("org.ow2.asm:asm:$asmVersion")
+    implementation("org.ow2.asm:asm-tree:$asmVersion")
     implementation(kotlin("reflect"))
 }
 
