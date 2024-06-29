@@ -15,7 +15,16 @@ interface MagicConfig<I : X, X : O, O> : SimpleConfig<I, O>
 
 fun main() {
     fastConvert(1)
+
+    val result = runCatching { 1 }
+    result.mapCatching {  }
 }
+
+fun Result<String>.parse() : Result<Int> {
+    return mapCatching { Integer.parseInt(it) }
+}
+
+
 
 sealed class Container<T>(val value: T)
 class IntContainer : Container<Int>(42)
