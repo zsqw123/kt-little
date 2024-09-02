@@ -47,3 +47,5 @@ fun main() {
         println()
     }
 }
+
+annotation class Simple

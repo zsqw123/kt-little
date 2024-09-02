@@ -12,8 +12,5 @@ fun main() {
 }
 
 fun test(a: String, b: String = "b", c: String) {
-
+    val kC: Collection<String> = listOf()
 }
-
-annotation class Component
-annotation class Provides(val target: Array<KClass<*>> = [])

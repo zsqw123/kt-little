@@ -15,11 +15,6 @@ class ShowFrameSampleKt {
                 d1
             } else b
         )
-        if (a > b) {
-            println(1)
-        } else {
-            println(2)
-        }
     }
 
     private fun bar(var1: Number, var2: Number) = Unit
