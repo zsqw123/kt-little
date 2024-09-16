@@ -7,11 +7,13 @@ import kotlin.reflect.KProperty
 inline val di get() = NothingDI
 
 
-object NothingDI : ReadOnlyProperty<Any, Nothing> {
-    override fun getValue(thisRef: Any, property: KProperty<*>): Nothing {
+object NothingDI : ReadOnlyProperty<Any?, Nothing> {
+    override fun getValue(thisRef: Any?, property: KProperty<*>): Nothing {
         throw IllegalStateException("No DI found")
     }
 }
+
+private val s: String by di
 
 annotation class Component
 @Target(AnnotationTarget.FUNCTION, AnnotationTarget.TYPE)
