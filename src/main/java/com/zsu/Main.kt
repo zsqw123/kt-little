@@ -1,8 +1,6 @@
 package com.zsu
 
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.SupervisorJob
-import kotlin.reflect.KClass
 
 fun main() {
     Job()

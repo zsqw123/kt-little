@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     kotlin("jvm") version "2.0.0"
     kotlin("plugin.serialization") version "2.0.0"
@@ -27,19 +25,15 @@ dependencies {
     implementation(kotlin("reflect"))
 }
 
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "11"
-        freeCompilerArgs = listOf("-Xcontext-receivers")
-    }
-}
-
 application {
     mainClass.set("MainKt")
 }
 
 kotlin {
+    jvmToolchain(17)
+    compilerOptions {
+        freeCompilerArgs.set(listOf("-Xcontext-receivers"))
+    }
     sourceSets.main {
 //        kotlin.srcDir("build/generated/ksp/main/kotlin")
         languageSettings {
