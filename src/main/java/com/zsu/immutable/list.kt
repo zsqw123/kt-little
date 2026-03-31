@@ -31,7 +31,7 @@ private fun <T> ktImmutable(input: List<List<T>>): List<T> {
     return current
 }
 
-private fun <T> guavaImmutable(input: List<List<T>>): List<T> {
+private fun <T : Any> guavaImmutable(input: List<List<T>>): List<T> {
     var current: ImmutableList<T> = ImmutableList.of()
     input.forEach { current = ImmutableList.builder<T>().addAll(current).addAll(it).build() }
     return current

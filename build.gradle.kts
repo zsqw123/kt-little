@@ -18,7 +18,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.0")
     implementation("com.google.guava:guava:33.5.0-jre")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0")
     val asmVersion = "9.9.1"
     implementation("org.ow2.asm:asm:$asmVersion")
     implementation("org.ow2.asm:asm-tree:$asmVersion")
@@ -32,7 +32,7 @@ application {
 kotlin {
     jvmToolchain(17)
     compilerOptions {
-        freeCompilerArgs.set(listOf("-Xcontext-receivers"))
+        freeCompilerArgs.set(listOf("-Xcontext-parameters"))
     }
     sourceSets.main {
 //        kotlin.srcDir("build/generated/ksp/main/kotlin")
