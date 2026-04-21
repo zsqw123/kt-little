@@ -17,7 +17,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.13.2")
     implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.0")
-    implementation("com.google.guava:guava:33.5.0-jre")
+    implementation("com.google.guava:guava:33.6.0-jre")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0")
     val asmVersion = "9.9.1"
     implementation("org.ow2.asm:asm:$asmVersion")
